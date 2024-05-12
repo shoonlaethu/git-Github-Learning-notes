@@ -1,0 +1,203 @@
+What is Git? 🤔🤔🤔 Git ကို 2005 မှာ linux ဖခင်ကြီး(တီထွင်ခဲ့တဲ့သူ) Linux Torvalds 
+
+CS(Version Control System) 
+date version မှာ ပြသနာတစ်စုံတစ်ရာဖြစ်ခဲ့တာမျိုးဖြစ်ဖြစ် ☹️ old version မှာ error ပါတာမျိုးဖြစ်ဖြစ် ☹️ လိုအပ်တဲ့ အဆင်ပြေမဲ့ version ကိုအချိန်မရွေးကောက်ပြောင်း
+ဘယ် programmer ကဘာရေးခဲ့တယ်ဘယ်သူကဘာပြင်ခဲ့တယ်စတဲ့အရာတွေကို trace လုပ်ပေးထား
+SCM(source code management)
+Team Collaboration ကောင်းကောင်းနဲ့ code ရေးသားနိုင်ခြင်းဖြစ်ပါတယ်ဗျ။ version အသစ်မှာဖြစ်လာတဲ့ bug တွေ error တွေကိုမြန်မြန်ဆန်ဆန် trace လိုက်လို့ရ
+
+git --version
+
+//init file youke hidden file pya
+//U new file enter pya tracking
+>git init
+git remote add origin https://github.com/kelvinkyaw/git_tutorial.git
+#origin ရဲ့နောက်မှာ github ပေါ်မှာ create လုပ်လိုက်တဲ့ repo URL
+
+git add ဆိုပြီး files တွေ folders တွေ ထပ်ထည့်
+git add src/main.js
+git add index.php
+git add app/Controller
+git add app/Model
+git add tmp
+
+ကိုယ်က ဘယ် file တွေ folder တွေ ချိန်းထားလဲ သိချင်ရင်။
+(modified red,stating state ko sent green)
+git status
+
+github ပေါ်မှာ မတင်ချင်
+.gitignore ဆိုတဲ့ hidden ဖြစ်နေတဲ့ file ကိုပြင်ပြီး ignore 
+tmp ဆိုတဲ့ folder ကို ignore
+vim .gitignore လို့ရိုက်ပြီးရင် keyboard က a key
+tmp/လို့ရိုက်။ Esc key ပြန်နှိပ်ပြီးရင် :wq ဆိုပြီး file ကိုသိမ်းပြီးထွက်လိုက်
+
+. dot files တွေက hidden ဖြစ်နေတက်ပါတယ်။ hidden ဖြစ်နေတဲ့ file တွေကို ဖော်ပေးတဲ့ command 
+
+Mac: Cmd + Shift + . (dot)
+Ubuntu: Ctr + H
+Windows သမားတွေဆို folder ကို right click -> Properties tab ထဲက hidden ဆိုတဲ့ checkbox ကို ရွေးပြီး OK နှိပ်။
+Command line ကနေဆို ls -al
+
+(stating stage go phoe)
+git add လုပ်ပြီးသွားတဲ့ file ကို reset
+git reset src/main.js #file or folder name
+
+files တွေလည်း ထည့်ပြီးပြီဆိုရင် commit message (github မှာ file တွေရောက်လာတဲ့အခါ ဘာအတွက် တင်ခဲ့တာလည်း )
+git commit -m "first commit"
+
+push ma lote khin commit လုပ်လိုက်တဲ့ message လေးကို ပြင်ချင်
+git commit --amend
+
+တကယ်လို့ ကိုယ့် branch က github လုံး၀မရှိသေးတဲ့ branch ဆိုရင်
+git push -u origin branchname
+git push origin branch  #branchname ကရှိပြီးသာဆို
+
+ local မှာ branch အသစ်ယူချင်တယ်ဆို
+git checkout -b branchname
+
+ရှေ့က လုပ်ထားတဲ့ တစ်ခြား branch ရဲ့ commit က file မှာ error တက်လို့ fix အရင်လုပ်ရမယ်။ လုပ်လက်စကို commit လုပ်လိုက်ရင်လည်း မလိုအပ်ပဲ commit တွေ ထပ်နေအုံးမယ်။ ဒီ command ကိုရိုက်တာနဲ့ လက်ရှိ လုပ်နေတဲ့ အလုပ်တွေ အရင် original stage ပြောင်းသွားပါပြီ
+git stash 
+fixed လုပ်ပြီးသွားပြီးဆိုတာနဲ့ ကိုယ့် လုပ်နေတဲ့ branch ကိုပြန်လာ
+git stash pop
+
+သတိထားသုံးသင့်တဲ့ command 
+ရှိနေပြီးသား အလုပ်တွေက အမှားကြီး လုံးဝ history တောင် မလိုချင်တော့ဘူးဆိုရင်။ hard ဆိုတဲ့အတိုင်း history တောင် လုံး၀မကျန်ပါဘူး။ အားလုံး rollback ချိန်ချင်တဲ့ commit နောက်ပိုင်း လုပ်သမျှ lost ဖြစ်သွားပါမယ်။
+soft reset ပါ။ သူက changes ထားတဲ့ file တွေ အကုန် သိမ်းထားပါတယ်။ မဖျက်ပစ်ပါဘူး။
+git reset --hard or --soft #commithash 
+git reset --mixed yourcommithash #e.g 65a81740ff8eeee98d8e04df2f5ae8805377fe12
+working index HEAD target         working index HEAD
+----------------------------------------------------
+ A       B     C    D     --soft   A       B     D
+			              --mixed  A       D     D
+			              --hard   D       D     D
+
+working: လက်ရှိလုပ်ပြင်နေဆဲ files တွေ
+
+🔢index: commit မလုပ်ခင် git ရဲ့ cache ထဲမှာ git add ဆိုပြီးလုပ်ထားခဲ့တဲ့ files တွေ
+
+🔢HEAD: ဆိုတာက လက်ရှိကိုယ့်ရဲ့ branch နဲ့ active ဖြစ်နေတဲ့ hash value (e.g d6f03d6382527878552933a5067ef9d46f37e8f5)
+
+🔢 target: ဆိုတာက ကိုယ်လက်ရှိ commit hash ကို target လုပ်မဲ့ hash နဲ့ override လုပ်မဲ့ hash value
+
+mixed option ဆိုရင် working file တွေကျန်မယ်၊ index က override လုပ်တဲ့ commit ရဲ့ index ဖြစ်သွားသလို ကိုယ့်ရဲ့ လက်ရှိ branch မှာလည်း override လုပ်လိုက်တဲ့ commit နဲ့ သူ့ commit မှာပါတဲ့ changes တွေ ရောက်လာမယ်။
+soft option  index kyan ml 
+hard option ကတော့ အန္တရာယ်ရှိတဲ့ option ပါ။ ဘာ histories မှ ပြန်ရစရာ မရှိပါဘူး။ All lost ပါ။ သေချာတယ်ဆို proceed with caution ပါ။
+
+develop branch ထဲမှာ feature1 က changes လုပ်ထားတဲ့ files တွေ၊ folder တွေ ရောက်လာ thu si ka hr nae ko hr nae ko add
+git merge feature01
+
+-----------------------------------------------------------------------------------
+
+//alll-----------------
+>>git init
+>>git status(red modified,green staging stage)
+>>git add #filename(want to chg red to green)
+
+git status(turn green)
+>git rm --cached #filename(go back to modified)
+>git status(turn red)
+
+ git add .(each file chin si ma hok pl all file recall)
+ (staging mode ka security a twet htae chin tr htae)
+
+ >>git commit -m "githublearning"
+
+ //**current file mhr changes shi yin(stating)
+ git add .
+
+ >git log(commit id nae ta kwa pya time id)
+>> git log --oneline(myar kyi ko shin aung kyi commit tay ko**useful)
+
+ git commit undoing things type 3 khu
+ 1checkoutcommit
+   commit kyi yone pl kyi tr br mha edit lote loe ma yae view only(save)
+ 2revert commit 
+   commit id ko yu lite yin e commit ma shi tae  a chay anay youke
+   pyan take loe ya thay tl backup save htar tr myo shi
+ 3reset commit
+   reset ka kya tot e commit id ko take lite tr nae e commit back mhr lote kae tat commit tay delete can't backup
+
+
+//***ctrl shift c nae commit id copy take
+
+>git checkout #commitid
+>git log --oneline(e commit now a chay anay mhr shi tae hr pl pya)
+>git checkout master(lastest write a chay a nay pyan youke)
+>git log --oneline(lastest pyit tat hr pyan youke pya)
+
+//commit new ta khu create p delete tr
+>git revert #comitid(revert file new lote )
+//ctrl x y enter
+>git log --oneline
+
+>git reset #comitid
+
+branches(Head->master)git repo ta khu build yin auto htae pay
+current code commit tay ka master branches mhr tin p lote e lo ma lote thint
+(e lo lote ma ya pouke ka ya tay)real reproduction mhr lote tr mode
+test phoe a twet ka master branch ka kwel htr tae branch mhr go write
+advantages of using branch
+master branch navigation->1desktop branch 2 phone branch
+thay chr p so master paw tin
+
+>git branch -a(branch count kyi chin yin)
+>git branch #branchfeatureDesktop1
+>git branch #branchfeaturePhone2
+(branch 1 khu nae 1 khu go chin yin)
+>git checkout #branchfeatureDesktop1(masterbranch mhr ma shi switch thwar)
+(branch 1 khu youke yin shae ka commit tay pr pr lr tl)
+>git branch -a (current branch ko dot nae pya)
+(branch youke yin code yay status comit add)
+
+//master branch mhr pl delete loe ya but master branch ko delete loe ma ya
+>git checkout #masterbranch
+>git branch -a
+>git branch -D(#branch name)
+
+merge 
+>git checkout master(paung htae chin branch)
+>git merge #branchfeatureDesktop1(thu yay tae code ko master file mhr add)
+>git merge #branchfeaturePhone2
+
+//:wq (pay lr tr ta myo pyit pyin method)
+
+//file 1 khu htel mhr branch 2 khu ka e samefile  win yin conflict pyit
+eg dev1 ka header ko background color change dev2 ka dev1 yae header htel ka code ko padding/fontsize change
+git merge dev2 lote lite tae a chain mhr git ka br lote ya ma lae ma thi [accept current change,accept incomming change,accept both change] choose pay ya tl
+
+//branch 1 ku si ka master branch htel merge p yin status/add/commit ta khr lote ya thay tl(checkout masterbranch)
+
+//---------------
+create repository from git hub(foldername prj should be)
+public
+
+//origin name nae repolink create
+>>git remote add origin #repolink
+>>git push -u origin master
+>git remote -v(name thet mhat kyi)//origin name kya
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

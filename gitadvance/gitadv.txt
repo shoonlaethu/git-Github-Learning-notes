@@ -1,0 +1,108 @@
+//cmder.net
+//daily useful
+git init
+git add .//
+git commit _m "firstcommit"//
+git remote add origin #repolink
+git puah origin master//
+
+-------1-----------
+design ta khu ko tin p user si tan pya chin yin hosting service thone
+setting>pages>Source-masterbranch>save
+
+---------2---------
+aliases lote tr window nae ma ya linux pl lote loe ya
+echo "hello"
+alias h="echo"hello""
+//terminal close p open yin work ma lote e tr kyount file mhr go save
+//linux home directory
+ls -a
+.bashrc(linux)//.zshrc(macos)
+alias h="echo"hello""
+restart p mha kyi
+h//hello
+
+git nae combine use 
+
+touch .aliases(create file in linux)
+code. aliases
+source htel htae aliases
+-----------3---------
+>git stash ( yay tae code ka pyat ma thwar pl ka na bay move ecode ko ma run pay mae shi nay)
+//pyan yu chin yin
+>git stash pop
+(boss ka feature ta khu yay khine lat shi yay lat sa file ko phel ya)
+git status(untracked files)
+(git stash ka comimt lote p thar pay bay cha)
+>git stash --include-untracked(commit kor untrack not modified ko phel pay)
+git stash pop pyan call 
+-------------4----------------
+gui cli
+
+git hub desktop gui
+(user friendly ma hok pay mae useful)
+
+easy way(vs code gui version)
+
+vscode ka help U->untrack file
+M->modified file
+source control
+git log
+
+compare kyi loe ya thay inline view
+-----------------5--------------
+
+open source contribution
+firstcontribution***github
+help beginners to contribute to the project
+open source project->public nae new repository->
+how to contribute other code
+
+Read me file ka bl lo work work lae so tr pya pay
+fork->ko yae repo below mhr chg loe ya aung lote
+>git checkout -b your-new-branch-name
+thu myr project htel mhr ko ka br htae yay chin tr lae
+>Contributors.md
+Add name to Contributors list
+git log
+>git push origin branchName
+(master ko tan ma tin thint feature build p mha htae)
+>pull request(pr tin tr)
+(thu myr page ko fork lote p yay tae htr ko origin coder si ko )
+email mhr owner ka accept
+-----------------------6---------------
+
+git ignore (prj directory folder tracking ma lite say chin yin thone tl)
+github paw dependencies package download cha mhr moe
+.gitignore mhr ko ignore chin tat folder or file name /foldername
+
+
+composer.json mhr require so tr mhr htae save ignore lote tat hr ko
+composer install
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
